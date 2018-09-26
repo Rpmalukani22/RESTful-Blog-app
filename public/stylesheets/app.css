@@ -1,6 +1,3 @@
-html{
-	 
-}
 i.icon {
     font-size: 1.5em;
     margin-right: 0 !important;
@@ -11,4 +8,14 @@ a {
 }
 div.field{
     margin-bottom: 10px !important;
+}
+.menu{
+    height: 5%;
+}
+.ui.segment {
+    padding: 10%;
+}
+#formbox {
+    width:50%;
+    box-shadow: 5px 10px #f6f6f6;
 }
