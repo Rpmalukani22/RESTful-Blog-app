@@ -1,0 +1,9 @@
+<% include partials/header %>
+<h1>this is the blog page</h1>
+<% Blogs.forEach((element)=>{%>
+    <h2><%= element.title %></h2>
+<img src="<%= element.image %>">
+<span><%= element.created %></span>
+<p><%= element.body %></p>
+<%});%>
+<% include partials/footer %>
