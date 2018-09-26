@@ -1,14 +1,14 @@
 html{
-	font-size:10px; 
+	 
 }
 i.icon {
-    font-size: 2.0em;
+    font-size: 1.5em;
     margin-right: 0 !important;
     margin-bottom: 5% !important;
-   
-   
 }
 a {
-    font-size: 1.5rem;
-    
+    font-size: 1rem;
+}
+div.field{
+    margin-bottom: 10px !important;
 }

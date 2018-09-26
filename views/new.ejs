@@ -1,0 +1,29 @@
+<% include partials/header %>
+<div class="ui container" style="width:40%">
+<div class="ui segment">
+ <form action="/blogs" method='POST'>
+     <div class="ui form">
+  <div class="field">
+    <label>Title :</label>
+    <input type="text" name="newBlog[title]">
+  </div>
+</div>
+<div class="ui form">
+  <div class="field">
+    <label>Image URL :</label>
+    <input type="text" name="newBlog[image]">
+  </div>
+</div>
+     <div class="ui form">
+  <div class="field">
+    <label>Description :</label>
+    <textarea name="newBlog[body]"></textarea>
+  </div>
+  <div>
+      <button class="ui primary basic button fluid">Submit!</button>
+  </div>
+</div>
+ </form>
+ 
+</div>
+<% include partials/footer %>

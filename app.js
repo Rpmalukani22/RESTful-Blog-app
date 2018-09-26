@@ -40,7 +40,17 @@ app.get('/blogs',(req,res)=>{
     });
     
 });
-
+app.get('/blogs/new',(req,res)=>{
+   res.render('new'); 
+});
+app.post('/blogs',(req,res)=>{
+    Blog.create(req.body.newBlog,(err,newBlogObj)=>{
+        if(err)
+        console.log('error');
+        else
+        res.redirect('/blogs');
+    });
+    });
 app.listen(process.env.PORT,process.env.IP,()=>{
    console.log("Server started!"); 
 });
