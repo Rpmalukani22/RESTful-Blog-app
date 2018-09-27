@@ -22,29 +22,13 @@
     <% } %>
         </p>
       </div>
-      <% if(element.body.length>=100){ %>
       <div class="extra">
         <div>
           <a class="ui right floated button" href="/blogs/<%= element._id%>">Read More</a>
         </div>
       </div>
-      <% } %>
     </div>
   </div>
   
 <%});%>
-<!--<% Blogs.forEach((element)=>{%>-->
-<!--<h2><%= element.title %></h2>-->
-<!--<img src="<%= element.image %>">-->
-<!--<span><%= element.created.toDateString() %></span>-->
-<!--<p>-->
-<!--    <% if(element.body.length>=100){ %>-->
-<!--    <%= element.body.substr(0,100); %>-->
-<!--    <a href="/blogs/<%= element._id%>">Read More...</a>-->
-<!--    <% } else {%>-->
-<!--    <%= element.body; %>-->
-<!--    <% } %>-->
-    
-<!--</p>-->
-<!--<%});%>-->
 <% include partials/footer %>
