@@ -1,34 +1,38 @@
 <% include partials/header %>
-<div class="ui items">
-<% Blogs.forEach((element)=>{%>
-  <div class="item" style="border-bottom:1px dashed black">
-      <div class='ui medium centered image' style='border:1px solid black;margin:2%;'>
-      <img src="<%= element.image %>">
-      </div>
-    
-    <div class="middle aligned content">
-      <div class="header">
-        <%= element.title %>
-      </div>
-      <div class="description">
-        <p>
-            <span><%= element.created.toDateString()+"," %></span>
-        <br>
-            <% if(element.body.length>=100){ %>
-    <%= element.body.substr(0,500); %>
-    ...
-    <% } else {%>
-    <%= element.body; %>
-    <% } %>
-        </p>
-      </div>
-      <div class="extra">
-        <div>
-          <a class="ui right floated button" href="/blogs/<%= element._id%>">Read More</a>
-        </div>
-      </div>
+<div class="ui main text container">
+  <div class="ui huge header">RESTful Blog App</div>
+    <div class="ui top  attached segment">
+    <div class="ui divided items">
+          <% Blogs.forEach((element)=>{%>
+              <div class="item">
+                  <div class="image">
+                     <img src="<%= element.image %>">
+                  </div>
+              <div class="content">
+                <a class="header" href="/blogs/<%= element._id %>">
+                   <%= element.title %>
+                </a>
+             <div class="meta">
+                             <span><%= element.created.toDateString() %></span>
+             </div>
+              <div class="description">
+               <p>
+                  <% if(element.body.length>=100){ %>
+                      <%- element.body.substr(0,500); %>
+                      ...
+                  <% } else {%>
+                        <%- element.body; %>
+                  <% } %>
+                </p>
+              </div>
+              <div class="extra">
+                 <a class="ui right floated button" href="/blogs/<%= element._id%>">Read More</a>
+              </div>
+            </div>
+          </div>
+        <%});%>
     </div>
   </div>
-  
-<%});%>
+</div>
+
 <% include partials/footer %>

@@ -1,14 +1,29 @@
 <% include partials/header %>
-<h1><%= blog.title%></h1>
-<p><%= blog.created.toDateString() %></p>
-<div class="ui container" style="height:360px;width:480px">
-<img style="height:100%;width:100%" class="ui big centered image bordered" src="<%= blog.image%>">
+<div class="ui raised very padded text container segment">
+  <div class="ui items">
+  <h1><%= blog.title%></h1>
+<div class="meta item">
+<span style="color:gray"><%= blog.created.toDateString() %></span>
 </div>
-<p><%= blog.body%></p>
+<div class="ui divider"></div>
+<!--<div class="ui container" style="height:360px;width:480px">-->
+<!--<img style="height:100%;width:100%" class="ui big centered image bordered" src="<%= blog.image%>">-->
+<!--</div>-->
+<div class="item">
+ <img class="ui big image" src="<%= blog.image%>">
+</div>
+<div class="item">
+<p><%- blog.body%></p>
+</div>
+<div class="item">
  <form action="/blogs/<%=blog._id%>/edit" style="display:inline;">
      <button class="ui purple basic button">Update</button>
  </form>
   <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST" style="display:inline;">
      <button class="ui red basic button">Delete</button>
  </form>
+ </div>
+ </div>
+ </div>
+ </div>
 <% include partials/footer %>

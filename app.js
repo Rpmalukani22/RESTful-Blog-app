@@ -2,12 +2,15 @@ var express=require('express');
 var bodyParser=require("body-parser");
 var mongoose=require("mongoose");
 var methodOverride = require('method-override');
+var expressSanitizer = require("express-sanitizer");
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
+app.use(expressSanitizer());
 app.set("view engine","ejs");
+
 mongoose.connect("mongodb://localhost/blogdb",{ useNewUrlParser: true });
 
 var schema=new mongoose.Schema({
@@ -54,6 +57,7 @@ app.get('/blogs/:id',(req,res)=>{
    });
 });
 app.post('/blogs',(req,res)=>{
+    req.body.newBlog.body=req.sanitize(req.body.newBlog.body);
     Blog.create(req.body.newBlog,(err,newBlogObj)=>{
         if(err)
         console.log('error');
@@ -75,6 +79,7 @@ app.get('/blogs/:id/edit',(req,res)=>{
    
 });
 app.put('/blogs/:id',(req,res)=>{
+    req.body.updatedBlog.body=req.sanitize(req.body.updatedBlog.body);
   Blog.findOneAndUpdate({_id: req.params.id},req.body.updatedBlog,(err,updatedObj)=>{
       if(err){
           console.log("update error!!!!!");
